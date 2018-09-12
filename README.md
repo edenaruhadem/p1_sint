@@ -6,5 +6,5 @@ Make changes in local (develop branch)
 Commit the changes (develop branch)
 Update the branch develop with master (git pull)
 Merge the branches
-Save changes in master (git push)
+Save changes in master (git push origin master)
 ------------------------------------
