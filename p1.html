@@ -8,65 +8,63 @@
     </head>
     <body>
         <h1>Registro en una página de información musical</h1>
-        <!--<img src="music.jpg" alt = "vinilos" style="width: 100%;height: 104px;"> --> <!--width 100% if resize for all navigators -->
-        <h2>Formulario</h2>
-        <hr></hr>
-        <form action="p1.php" method="POST" name="Formulario">
+        <img src="music.jpg" alt = "pink floyd"> <!-- this is a comment -->        
+        <form action="p1.php" method="POST" name="Formulario" autocomplete="on">
             <fieldset id="field1">
-                <legend>Datos personales:</legend>                     
+                <legend class="tittlefield">Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
-                            <td>Nombre</td>
+                            <td>Nombre:</td>
                             <td><input type="text" name="Nombre"></td>
                         </tr>
                         <tr>
-                            <td>Apellidos</td>
+                            <td>Apellidos:</td>
                             <td><input type="text" name="Apellidos"></td>
                         </tr>
                         <tr>
-                            <td>Sexo</td>
+                            <td>Sexo:</td>
                             <td><input type="radio" name="Sexo" value="Mujer" checked>Mujer<input type="radio" name="Sexo" value="Hombre">Hombre<input type="radio" name="Sexo" value="Otro">Otro</td>
                         </tr>
                         <tr>
-                            <td>Fecha de Nacimiento</td>
-                            <td><input type="text" name="FechaNacimiento"></td>
+                            <td>Fecha de Nacimiento:</td>
+                            <td><input type="text" name="FechaNacimiento" title="dd/mm/aaaa"></td>
                         </tr>
                         <tr>
-                            <td>Dirección</td>
-                            <td><input type="text" name="Direccion"></td>
+                            <td>Dirección:</td>
+                            <td>Calle: <input type="text" name="calle"> Número: <input type="text" name="numero"> Piso: <input type="text" name="piso"> Letra: <input type="text" name="letra"></td>
                         </tr>
                         <tr>
-                            <td>Localidad</td>
+                            <td>Localidad:</td>
                             <td><input type="text" name="Localidad"></td>
                         </tr>
                         <tr>
-                            <td>Provincia</td>
+                            <td>Provincia:</td>
                             <td><input type="text" name="Provincia"></td>
                         </tr>
                         <tr>
-                            <td>País</td>
+                            <td>País:</td>
                             <td><input type="text" name="Pais"></td>
                         </tr>
                         <tr>
-                            <td>Código Postal</td>
-                            <td><input type="text" name="CodigoPostal"></td>
+                            <td>Código Postal:</td>
+                            <td><input type="text" name="CodigoPostal" title="[0-9] 5 dígitos"></td>
                         </tr>
                         <tr>
-                            <td>Teléfono</td>
+                            <td>Teléfono:</td>
                             <td><input type="text" name="Telefono" title="[0-9] 9 dígitos"></td>
                         </tr>
                         <tr>
-                            <td>e-mail</td>
-                            <td><input type="text" name="e-mail"></td>
+                            <td>e-mail:</td>
+                            <td><input type="text" name="e-mail" title="name@dominio"></td>
                         </tr>
                         <tr>
-                            <td>Password</td>
-                            <td><input type="text" name="Password"></td>
+                            <td>Password:</td>
+                            <td><input type="password" name="Password" title="alfanumérica con más de 8 caracteres"></td>
                         </tr>                         
                     </table>
             </fieldset>
             <fieldset id="field2">
-                <legend>Intereses musicales</legend>
+                <legend class="tittlefield">Intereses musicales</legend>
                 Géneros musicales:<br>
                 <input type="checkbox" name="generos" value="Rock">Rock
                 <input type="checkbox" name="generos" value="Pop">Pop
@@ -75,11 +73,13 @@
                 <input type="checkbox" name="generos" value="Ska">Ska
                 <input type="checkbox" name="generos" value="Reagge">Reagge<br>
                 ¿Desea recibir ofertas y recomendaciones musicales?<br>
-                <input type="radio" name="ofertas" value="SI" checked>Sí
-                <input type="radio" name="ofertas" value="NO">No<br>
+                <select name="ofertas">
+                        <option value="SI">Sí</option>
+                        <option value="NO">No</option>
+                </select><br>                
             </fieldset>
             <fieldset id="field3">
-                <legend>Formas de envío del formulario y politica</legend>
+                <legend class="tittlefield">Formas de envío del formulario y politica</legend>
                 ¿Consiente el tratamiento de sus datos?<br>
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
@@ -92,9 +92,15 @@
                 URL de envío:<br>
                 <input type="radio" name="url" value="p1.php" checked>p1.php
                 <input type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
-            </fieldset>            
+            </fieldset>
+            <fieldset id="field4">
+                <legend class="tittlefield">Comentarios</legend>
+                <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
+            </fieldset>
             <input type = "submit" value="Enviar" class="button">
             <input type="reset" value="Reset" class="button">
+            
+                     
         </form> 
     </body>
 </html>
