@@ -11,65 +11,90 @@
         <!--<img src="music.jpg" alt = "vinilos" style="width: 100%;height: 104px;"> --> <!--width 100% if resize for all navigators -->
         <h2>Formulario</h2>
         <hr></hr>
-        <form action="p1.php">                       
-            <table class = "tabla" style="width: 100%"
-                <caption>Datos personales</caption>            
-                <tr>
-                    <td>Nombre</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Apellidos</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Sexo</td>
-                    <td>Bloque de radio</td>
-                </tr>
-                <tr>
-                    <td>Fecha de Nacimiento</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Dirección</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Localidad</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Provincia</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>País</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Código Postal</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>Teléfono</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>e-mail</td>
-                    <td>Bloque de texto</td>
-                </tr>
-                <tr>
-                    <td>contraseña</td>
-                    <td>Bloque de texto</td>
-                </tr>                         
-            </table>
-
-            <p id = "p1" title = "Introducir nueve dígitos"> This is a paragraph</p>        
-            <p class = "clase">Prueba del atributo clase</p>
-            <p id = "p1">Prueba del atributo id con css</p>
-            <p class = "clase">Otra prueba del atributo clase</p>
-            <button>Enviar</button>
-            <button>Reset</button>
+        <form action="p1.php" method="POST" name="Formulario">
+            <fieldset id="field1">
+                <legend>Datos personales:</legend>                     
+                    <table class = "tabla" style="width: 100%"                                    
+                        <tr>
+                            <td>Nombre</td>
+                            <td><input type="text" name="Nombre"></td>
+                        </tr>
+                        <tr>
+                            <td>Apellidos</td>
+                            <td><input type="text" name="Apellidos"></td>
+                        </tr>
+                        <tr>
+                            <td>Sexo</td>
+                            <td><input type="radio" name="Sexo" value="Mujer" checked>Mujer<input type="radio" name="Sexo" value="Hombre">Hombre<input type="radio" name="Sexo" value="Otro">Otro</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de Nacimiento</td>
+                            <td><input type="text" name="FechaNacimiento"></td>
+                        </tr>
+                        <tr>
+                            <td>Dirección</td>
+                            <td><input type="text" name="Direccion"></td>
+                        </tr>
+                        <tr>
+                            <td>Localidad</td>
+                            <td><input type="text" name="Localidad"></td>
+                        </tr>
+                        <tr>
+                            <td>Provincia</td>
+                            <td><input type="text" name="Provincia"></td>
+                        </tr>
+                        <tr>
+                            <td>País</td>
+                            <td><input type="text" name="Pais"></td>
+                        </tr>
+                        <tr>
+                            <td>Código Postal</td>
+                            <td><input type="text" name="CodigoPostal"></td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono</td>
+                            <td><input type="text" name="Telefono" title="[0-9] 9 dígitos"></td>
+                        </tr>
+                        <tr>
+                            <td>e-mail</td>
+                            <td><input type="text" name="e-mail"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" name="Password"></td>
+                        </tr>                         
+                    </table>
+            </fieldset>
+            <fieldset id="field2">
+                <legend>Intereses musicales</legend>
+                Géneros musicales:<br>
+                <input type="checkbox" name="generos" value="Rock">Rock
+                <input type="checkbox" name="generos" value="Pop">Pop
+                <input type="checkbox" name="generos" value="Metal">Metal
+                <input type="checkbox" name="generos" value="Folk">Folk
+                <input type="checkbox" name="generos" value="Ska">Ska
+                <input type="checkbox" name="generos" value="Reagge">Reagge<br>
+                ¿Desea recibir ofertas y recomendaciones musicales?<br>
+                <input type="radio" name="ofertas" value="SI" checked>Sí
+                <input type="radio" name="ofertas" value="NO">No<br>
+            </fieldset>
+            <fieldset id="field3">
+                <legend>Formas de envío del formulario y politica</legend>
+                ¿Consiente el tratamiento de sus datos?<br>
+                <input type="radio" name="datos" value="SI" checked>Sí
+                <input type="radio" name="datos" value="NO">No<br>
+                Método de envío del formulario:<br>
+                <input type="radio" name="envio" value="GET">Get
+                <input type="radio" name="envio" value="POST" checked>Post<br>
+                Codificación de los datos enviados:<br>
+                <input type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
+                <input type="radio" name="codificacion" value="multipart/form-data">multipart/form-data<br>
+                URL de envío:<br>
+                <input type="radio" name="url" value="p1.php" checked>p1.php
+                <input type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
+            </fieldset>            
+            <input type = "submit" value="Enviar" class="button">
+            <input type="reset" value="Reset" class="button">
         </form> 
     </body>
 </html>

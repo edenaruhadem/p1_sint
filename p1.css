@@ -1,22 +1,24 @@
-body {
-    background-color: powderblue;
-
+body
+{
+    background-color: beige;
 }
-h1 {
-    color: blue;
-    
-
+#field1
+{
+    background-color: cadetblue;   
 }
-#p1 {
-    color: red;
-
+#field2
+{
+    background-color: burlywood;
 }
-.clase{
-    color: palegreen;
+#field3
+{
+    background-color: aqua;
 }
-.tabla{
-    background: beige;
+.button
+{
+    color: coral;
+}
+.tabla{    
     border: 1px solid black;
-    border-collapse: collapse;
-    
+    border-collapse: collapse;    
 }
