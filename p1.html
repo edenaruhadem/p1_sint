@@ -8,10 +8,10 @@
     </head>
     <body>
         <h1>Registro en una página de información musical</h1>
-        <img src="music.jpg" alt = "pink floyd"> <!-- this is a comment -->        
-        <form action="p1.php" method="POST" name="Formulario" autocomplete="on">
+        <center><img src="music.jpg" alt = "pink floyd"></center> <!-- this is a comment -->        
+        <form action="p1.php" method="GET" name="Formulario" autocomplete="on" enctype="application/x-www-form-urlencoded">
             <fieldset id="field1">
-                <legend class="tittlefield">Datos personales:</legend>                     
+                <legend>Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
                             <td>Nombre:</td>
@@ -63,8 +63,8 @@
                         </tr>                         
                     </table>
             </fieldset>
-            <fieldset id="field2">
-                <legend class="tittlefield">Intereses musicales</legend>
+            <fieldset class="field">
+                <legend>Intereses musicales</legend>
                 Géneros musicales:<br>
                 <input type="checkbox" name="generos" value="Rock">Rock
                 <input type="checkbox" name="generos" value="Pop">Pop
@@ -79,13 +79,13 @@
                 </select><br>                
             </fieldset>
             <fieldset id="field3">
-                <legend class="tittlefield">Formas de envío del formulario y politica</legend>
+                <legend>Formas de envío del formulario y politica</legend>
                 ¿Consiente el tratamiento de sus datos?<br>
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
                 Método de envío del formulario:<br>
-                <input type="radio" name="envio" value="GET">Get
-                <input type="radio" name="envio" value="POST" checked>Post<br>
+                <input type="radio" name="metodo" value="GET">Get
+                <input type="radio" name="metodo" value="POST" checked>Post<br>
                 Codificación de los datos enviados:<br>
                 <input type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
                 <input type="radio" name="codificacion" value="multipart/form-data">multipart/form-data<br>
@@ -93,14 +93,14 @@
                 <input type="radio" name="url" value="p1.php" checked>p1.php
                 <input type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
             </fieldset>
-            <fieldset id="field4">
-                <legend class="tittlefield">Comentarios</legend>
+            <fieldset class="field">
+                <legend>Comentarios</legend>
                 <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
             </fieldset>
             <input type = "submit" value="Enviar" class="button">
             <input type="reset" value="Reset" class="button">
             
                      
-        </form> 
+        </form>          
     </body>
 </html>
