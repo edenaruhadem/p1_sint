@@ -2,22 +2,22 @@ body
 {
     background-color: beige;
 }
+h1
+{
+    font-style: oblique;
+    text-align: center;
+}
+
 #field1
 {
     background-color: paleturquoise;   
 }
-#field2
-{
-    background-color: burlywood;
-}
+
 #field3
 {
     background-color: plum;
 }
-#field4
-{
-    background-color: aliceblue;
-}
+
 #sugs{
     width: 200px;
     height: 100px;
@@ -30,11 +30,17 @@ body
 {
     border-collapse: collapse;    
 }
-.tittlefield
+fieldset>legend
 {
     font-style: italic;
     font-weight: bold;    
 }
+
+.field
+{
+    background-color: burlywood;
+}
+
 img
 {
     border-radius: 8px;
