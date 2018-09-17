@@ -24,34 +24,36 @@ function checkIsEmpty()
     var emailEmpty = emailIsEmpty();
     var nacimientoEmpty = nacimientoIsEmpty();
     var telefonoEmpty = telefonoIsEmpty();
+    
 
     
     if ((nombreEmpty == false) || (apellidosEmpty == false) || (emailEmpty == false) || (nacimientoEmpty == false) || (telefonoEmpty == false))
     {
-        var mensaje = "Los siguientes campos requeridos se encuentran vacíos \n";
+        var mensajeIsEmpty = "Los siguientes campos requeridos se encuentran vacíos \n";
+
         if (nombreEmpty == false)
         {
-            mensaje += "El campo nombre está vacío \n";
+            mensajeIsEmpty += "El campo nombre está vacío \n";
         }
         if (apellidosEmpty == false)
         {
-            mensaje += "El campo apellido está vacío \n";
+            mensajeIsEmpty += "El campo apellido está vacío \n";
         }
         if (emailEmpty == false)
         {
-            mensaje += "El campo e-mail está vacío \n";
+            mensajeIsEmpty += "El campo e-mail está vacío \n";
         }
         if (nacimientoEmpty == false)
         {
-            mensaje += "El campo fecha de nacimiento está vacío \n";
+            mensajeIsEmpty += "El campo fecha de nacimiento está vacío \n";
         }
         if (telefonoEmpty == false)
         {
-            mensaje += "El campo teléfono está vacío \n";
+            mensajeIsEmpty += "El campo teléfono está vacío \n";
         }
-        alert(mensaje);
+        alert(mensajeIsEmpty);
         return false;
-    }
+    }    
     else
     {
         return true;
@@ -63,9 +65,29 @@ Función general que verifica la correcta introducción de los datos pertenecien
 */
 function checkIsCorrect()
 {
+    var correctNombre = checkNombre();
+    var correctApellido = checkApellido();
+    if ((correctNombre == false) || (correctApellido == false))
+    {
+        var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
+
+        if (correctNombre == false)
+        {
+            mensajeIsCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
+        }
+        if (correctApellido == false)
+        {
+            mensajeIsCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
+        }        
+        alert(mensajeIsCorrect);
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 
 }
-
 
 
 /*
@@ -116,10 +138,18 @@ Este grupo de funciones contiene patrones específicos de verificación de datos
 */
 function checkNombre()
 {
-
+    var x = document.forms["Formulario"]["Nombre"].value;
+    if (x.search(/^[a-zA-Z\s]*$/)==-1)
+    {
+        return false;
+    }    
 }
 
-funtion checkApellido()
+function checkApellido()
 {
-    
+    var x = document.forms["Formulario"]["Apellidos"].value;
+    if (x.search(/^[a-zA-Z\s]*$/)==-1)
+    {
+        return false;
+    }    
 }
