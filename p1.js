@@ -1,3 +1,22 @@
+/*
+Función principal que se llama desde el formulario para hacer las verificaciones
+*/
+function checkForm()
+{
+    var checkEmpty = checkIsEmpty();
+    var checkCorrect = checkIsCorrect();
+    if (checkEmpty == false || checkCorrect == false)
+    {        
+        return false;
+    }
+    else 
+    {
+        return true;
+    }
+}
+/*
+Función general que verifica la existencia de datos en todos los campos requeridos
+*/
 function checkIsEmpty()
 {
     var nombreEmpty = nombreIsEmpty();
@@ -39,23 +58,19 @@ function checkIsEmpty()
     }
    
 }
-
-function validarFormulario()
+/*
+Función general que verifica la correcta introducción de los datos pertenecientes a cada campo
+*/
+function checkIsCorrect()
 {
-    var checkEmpty = checkIsEmpty();
-    if (checkEmpty == false)
-    {        
-        return false;
-    }
-    /*else
-    {
-        //Comprobar la codifiación, envío y bla bla bla
-
-    }*/
 
 }
 
 
+
+/*
+Este grupo de funciones checkea la existencia de datos requeridos en los campos. Son funciones parciales
+*/
 function nombreIsEmpty()
 {
     var x = document.forms["Formulario"]["Nombre"].value;
@@ -96,7 +111,15 @@ function telefonoIsEmpty()
         return false;
     }
 }
-/*function validarFechaNacimiento()
+/*
+Este grupo de funciones contiene patrones específicos de verificación de datos. Son funciones parciales.
+*/
+function checkNombre()
 {
 
-}*/
+}
+
+funtion checkApellido()
+{
+    
+}
