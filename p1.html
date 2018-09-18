@@ -15,12 +15,12 @@
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type="text" name="Nombre" required></td>
+                            <td><input type="text" name="Nombre"><label class = "asterisco">*</label></td>
                             <td class="blink">No debe contener números</td>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
-                            <td><input type="text" name="Apellidos" required></td>
+                            <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>
                             <td class="blink">No debe contener números</td>
                         </tr>
                         <tr>
@@ -29,7 +29,7 @@
                         </tr>
                         <tr>
                             <td>Fecha de Nacimiento:</td>
-                            <td><input type="text" name="FechaNacimiento" required></td>
+                            <td><input type="text" name="FechaNacimiento"></td>
                             <td class="blink">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</td>
                         </tr>
                         <tr>
@@ -50,22 +50,22 @@
                         </tr>
                         <tr>
                             <td>Código Postal:</td>
-                            <td><input type="text" name="CodigoPostal" title="[0-9] 5 dígitos"></td>
+                            <td><input type="text" name="CodigoPostal"></td>
                             <td class="blink">Introduzca 5 dígitos.</td>
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
-                            <td><input type="text" name="Telefono" required></td>
+                            <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>
                             <td class="blink">Introduzca 9 dígitos</td>
                         </tr>
                         <tr>
                             <td>e-mail:</td>
-                            <td><input type="text" name="e-mail" required></td>
+                            <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>
                             <td class="blink">Introduzca un e-mail válido: username@dominio.</td>
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input type="password" name="Password" onchange ="checkPassword()" required></td>
+                            <td><input type="password" name="Password" onchange ="checkPassword()"><label class = "asterisco">*</label></td>
                             <td class="blink">Debe contener entre 4 (incluido) y 16 (incluido) caracteres de tipo alfanumérico</td>
                         </tr>                         
                     </table>

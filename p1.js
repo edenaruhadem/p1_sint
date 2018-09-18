@@ -29,14 +29,12 @@ function checkIsEmpty()
 {
     var nombreEmpty = nombreIsEmpty();
     var apellidosEmpty = apellidosIsEmpty();
-    var emailEmpty = emailIsEmpty();
-    var nacimientoEmpty = nacimientoIsEmpty();
+    var emailEmpty = emailIsEmpty();    
     var telefonoEmpty = telefonoIsEmpty();
-    var passwordEmpty = passwordIsEmpty();
-    
+    var passwordEmpty = passwordIsEmpty(); 
 
     
-    if ((nombreEmpty == false) || (apellidosEmpty == false) || (emailEmpty == false) || (nacimientoEmpty == false) || (telefonoEmpty == false) || (passwordEmpty == false))
+    if ((nombreEmpty == false) || (apellidosEmpty == false) || (emailEmpty == false) || (telefonoEmpty == false) || (passwordEmpty == false))
     {
         var mensajeIsEmpty = "Los siguientes campos requeridos se encuentran vacíos \n";
 
@@ -51,11 +49,7 @@ function checkIsEmpty()
         if (emailEmpty == false)
         {
             mensajeIsEmpty += "El campo e-mail está vacío \n";
-        }
-        if (nacimientoEmpty == false)
-        {
-            mensajeIsEmpty += "El campo fecha de nacimiento está vacío \n";
-        }
+        }        
         if (telefonoEmpty == false)
         {
             mensajeIsEmpty += "El campo teléfono está vacío \n";
@@ -124,14 +118,6 @@ function apellidosIsEmpty()
 function emailIsEmpty()
 {
     var x = document.forms["Formulario"]["e-mail"].value;
-    if (x == "")
-    {        
-        return false;
-    }
-}
-function nacimientoIsEmpty()
-{
-    var x = document.forms["Formulario"]["FechaNacimiento"].value;
     if (x == "")
     {        
         return false;
