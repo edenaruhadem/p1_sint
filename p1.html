@@ -15,11 +15,13 @@
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type="text" name="Nombre"></td>
+                            <td><input type="text" name="Nombre" required></td>
+                            <td class="blink">No debe contener números</td>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
-                            <td><input type="text" name="Apellidos"></td>
+                            <td><input type="text" name="Apellidos" required></td>
+                            <td class="blink">No debe contener números</td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -27,7 +29,8 @@
                         </tr>
                         <tr>
                             <td>Fecha de Nacimiento:</td>
-                            <td><input type="text" name="FechaNacimiento" title="dd/mm/aaaa"></td>
+                            <td><input type="text" name="FechaNacimiento" required></td>
+                            <td class="blink">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</td>
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -48,31 +51,39 @@
                         <tr>
                             <td>Código Postal:</td>
                             <td><input type="text" name="CodigoPostal" title="[0-9] 5 dígitos"></td>
+                            <td class="blink">Introduzca 5 dígitos.</td>
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
-                            <td><input type="text" name="Telefono" title="[0-9] 9 dígitos"></td>
+                            <td><input type="text" name="Telefono" required></td>
+                            <td class="blink">Introduzca 9 dígitos</td>
                         </tr>
                         <tr>
                             <td>e-mail:</td>
-                            <td><input type="text" name="e-mail" title="name@dominio"></td>
+                            <td><input type="text" name="e-mail" required></td>
+                            <td class="blink">Introduzca un e-mail válido: username@dominio.</td>
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input type="password" name="Password" title="alfanumérica con más de 8 caracteres"></td>
+                            <td><input type="password" name="Password" onchange ="checkPassword()" required></td>
+                            <td class="blink">Debe contener entre 4 (incluido) y 16 (incluido) caracteres de tipo alfanumérico</td>
                         </tr>                         
                     </table>
             </fieldset>
             <fieldset class="field">
                 <legend>Intereses musicales</legend>
                 Géneros musicales:<br>
-                <input type="checkbox" name="generos" value="Rock">Rock
-                <input type="checkbox" name="generos" value="Pop">Pop
-                <input type="checkbox" name="generos" value="Metal">Metal
-                <input type="checkbox" name="generos" value="Folk">Folk
-                <input type="checkbox" name="generos" value="Ska">Ska
-                <input type="checkbox" name="generos" value="Reagge">Reagge
-                <input type="checkbox" name="generos" value="Todos">Todos<br>
+                <p>
+                    <input id = "check1" type="checkbox" name="generos[]" value="Rock">Rock
+                    <input id = "check2" type="checkbox" name="generos[]" value="Pop">Pop
+                    <input id = "check3" type="checkbox" name="generos[]" value="Metal">Metal
+                    <input id = "check4" type="checkbox" name="generos[]" value="Folk">Folk
+                    <input id = "check5" type="checkbox" name="generos[]" value="Jazz">Jazz
+                    <input id = "check6" type="checkbox" name="generos[]" value="Ska">Ska
+                    <input id = "check7" type="checkbox" name="generos[]" value="Reggae">Reggae
+                    <input id = "check8" type="checkbox" name="generos[]" value="Todos" onclick="setTrueCheckboxes()">Todos<br>
+                    <input id = "check9" type="checkbox" name="generos[]" value="Ninguno" onclick="setFalseCheckboxes()">Ninguno<br>
+                </p>
                 ¿Desea recibir ofertas y recomendaciones musicales?<br>
                 <select name="ofertas">
                         <option value="SI">Sí</option>
@@ -99,9 +110,9 @@
                 <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
             </fieldset>
             <input type = "submit" value="Enviar" class="button">
-            <input type="reset" value="Limpiar" class="button">
-            
-                     
+            <input type = "reset" value="Limpiar" class="button">
+            <input type = "hidden" name="navegador">
+            <input type = "hidden" name="hora">                     
         </form>          
     </body>
 </html>

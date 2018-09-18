@@ -24,8 +24,12 @@
     </fieldset>
     <fieldset class="field">
         <legend>Intereses musicales</legend> 
-    <?php
-        echo "Géneros musicales: " . $_REQUEST['generos'] . "<br/>" ;
+    <?php        
+        echo "Géneros musicales seleccionados: " . "<br/>";
+        foreach($_REQUEST['generos'] as $selected)
+        {
+            echo $selected . "</br>";
+        }
         echo $_REQUEST['ofertas'] . " desea recibir ofertas musicales." . "<br/>";
     ?>
     </fieldset>
@@ -36,7 +40,10 @@
         echo "Método de envío: " . $_REQUEST['metodo'] . "<br/>";
         echo "Codificación de los datos: " . $_REQUEST['codificacion'] . "<br/>";
         echo "URL de envío: " . $_REQUEST['url'] . "<br/>";
-        echo "Comentarios: " . PHP_EOL; echo $_REQUEST['sugerencias'] . "<br/>";
+        echo "Comentarios:" . "<br/>"; 
+        echo $_REQUEST['sugerencias'] . "<br/>";
+        echo "Hora: " . $_REQUEST['hora'] . "<br/>";
+        echo "Navegador : " . $_REQUEST['navegador'] . "<br/>";
     ?>
     </fieldset>
 </body>
