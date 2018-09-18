@@ -3,18 +3,45 @@ Función principal que se llama desde el formulario para hacer las verificacione
 */
 function checkForm()
 {
-    var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";
-    var checkEmpty = checkIsEmpty();
+    var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";    
     var checkCorrect = checkIsCorrect();
     var calendario= new Date();
     var hora = new String (calendario.getHours());
     var minutos = new String (calendario.getMinutes());
-   	var segundos = new String (calendario.getSeconds());
-    if (checkEmpty == false || checkCorrect == false)
+    var segundos = new String (calendario.getSeconds());
+
+    if (document.getElementById("isPost").checked == true)
+    {
+        document.getElementById("myForm").method = "POST";        
+    }
+    else
+    {
+        document.getElementById("myForm").method = "GET";
+    }
+
+    if (document.getElementById("isUrlencoded").checked == true)
+    {
+        document.getElementById("myForm").enctype = "application/x-www-form-urlencoded";        
+    }
+    else
+    {
+        document.getElementById("myForm").enctype = "multipart/form-data";
+    }
+
+    if (document.getElementById("isP1").checked == true)
+    {
+        document.getElementById("myForm").action = "p1.php";        
+    }
+    else
+    {
+        document.getElementById("myForm").action = "http://193.146.210.123/phpinfo.php";
+    }
+
+    if (checkCorrect == false)
     {        
         return false;
     }
-    else if (checkEmpty == true && checkCorrect == true)
+    else if (checkCorrect == true)
     {        
     	document.forms["Formulario"]["hora"].value = hora + ":" + minutos + ":" + segundos;
         document.forms["Formulario"]["navegador"].value = comprobarNavegador();   
@@ -23,58 +50,17 @@ function checkForm()
     }
 }
 /*
-Función general que verifica la existencia de datos en todos los campos requeridos
-*/
-function checkIsEmpty()
-{
-    var nombreEmpty = nombreIsEmpty();
-    var apellidosEmpty = apellidosIsEmpty();
-    var emailEmpty = emailIsEmpty();    
-    var telefonoEmpty = telefonoIsEmpty();
-    var passwordEmpty = passwordIsEmpty(); 
-
-    
-    if ((nombreEmpty == false) || (apellidosEmpty == false) || (emailEmpty == false) || (telefonoEmpty == false) || (passwordEmpty == false))
-    {
-        var mensajeIsEmpty = "Los siguientes campos requeridos se encuentran vacíos \n";
-
-        if (nombreEmpty == false)
-        {
-            mensajeIsEmpty += "El campo nombre está vacío \n";
-        }
-        if (apellidosEmpty == false)
-        {
-            mensajeIsEmpty += "El campo apellido está vacío \n";
-        }
-        if (emailEmpty == false)
-        {
-            mensajeIsEmpty += "El campo e-mail está vacío \n";
-        }        
-        if (telefonoEmpty == false)
-        {
-            mensajeIsEmpty += "El campo teléfono está vacío \n";
-        }
-        if (passwordEmpty == false)
-        {
-            mensajeIsEmpty += "El campo password está vacío \n";
-        }
-        alert(mensajeIsEmpty);
-        return false;
-    }    
-    else
-    {
-        return true;
-    }
-   
-}
-/*
 Función general que verifica la correcta introducción de los datos pertenecientes a cada campo
 */
 function checkIsCorrect()
 {
     var correctNombre = checkNombre();
-    var correctApellido = checkApellido();    
-    if ((correctNombre == false) || (correctApellido == false))
+    var correctApellido = checkApellido();
+    var correctNacimiento = checkNacimiento();
+    var correctCodigoPostal = checkCodigoPostal();
+    var correctTelefono = checkTelefono();
+    var correctEmail = checkEmail();      
+    if ((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false))
     {
         var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
 
@@ -85,57 +71,28 @@ function checkIsCorrect()
         if (correctApellido == false)
         {
             mensajeIsCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
-        }        
+        }
+        if (correctNacimiento == false)
+        {
+            mensajeIsCorrect += "El campo fecha de nacimiento introducido es erróneo \n";
+        }
+        if (correctCodigoPostal == false)
+        {
+            mensajeIsCorrect += "El código postal introducido es erróneo \n";
+        }
+        if (correctTelefono == false)
+        {
+            mensajeIsCorrect += "El teléfono introducido es erróneo \n";
+        }
+        if (correctEmail == false)
+        {
+            mensajeIsCorrect += "El e-mail introducido es erróneo \n";
+        }            
         return false;
     }
     else
     {
         return true;
-    }
-
-}
-
-/*
-Este grupo de funciones checkea la existencia de datos requeridos en los campos. Son funciones parciales
-*/
-function nombreIsEmpty()
-{
-    var x = document.forms["Formulario"]["Nombre"].value;
-    if (x == "")
-    {        
-        return false;
-    }
-}
-function apellidosIsEmpty()
-{
-    var x = document.forms["Formulario"]["Apellidos"].value;
-    if (x == "")
-    {        
-        return false;
-    }
-}
-function emailIsEmpty()
-{
-    var x = document.forms["Formulario"]["e-mail"].value;
-    if (x == "")
-    {        
-        return false;
-    }
-}
-function telefonoIsEmpty()
-{
-    var x = document.forms["Formulario"]["Telefono"].value;
-    if (x == "")
-    {        
-        return false;
-    }
-}
-function passwordIsEmpty()
-{
-    var x = document.forms["Formulario"]["Password"].value;
-    if (x == "")
-    {        
-        return false;
     }
 }
 /*
@@ -158,6 +115,67 @@ function checkApellido()
         return false;
     }    
 }
+function checkNacimiento()
+{
+    var x = document.forms["Formulario"]["FechaNacimiento"].value;
+    if(x!='')
+    {	
+		var dia = parseInt(x.substring(0,2));		
+		var mes = parseInt(x.substring(3,5));		
+		var ano = x.substring(6, 10);		
+		var longAno = ano.length;
+        if((dia>31) || (mes>12) || (longAno!=4))
+        {
+			return false;
+		}
+	}
+    else 
+    {
+        return true;
+    }
+}
+function checkCodigoPostal()
+{
+    var x = document.forms["Formulario"]["CodigoPostal"].value;
+    var longCP = x.length;
+    if ((longCP!=5) && (x.search(/[0-9]/)==-1))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function checkTelefono()
+{
+    var x = document.forms["Formulario"]["Telefono"].value;
+    var longTelefono = x.length;
+    if ((longTelefono!=9) && (x.search(/[0-9]/)==-1))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function checkEmail()
+{
+	var email = document.forms["Formulario"]["e-mail"];	
+	var cadenaEmail =/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if(email != '') 
+    {		
+        if(!cadenaEmail.test(email))
+        {
+			return false;
+		}		
+	}	
+    else 
+    {
+        return true;
+    }
+}
 function deploy(x)
 {
     document.getElementById("message").style.display = "block";
@@ -167,8 +185,7 @@ function undeploy(x)
     document.getElementById("message").style.display = "none";
 }
 function checkPassword()
-{   
-
+{
   var campo = document.getElementById("campocontraseña");
   var letter = document.getElementById("minuscula");
   var capital = document.getElementById("mayuscula");
