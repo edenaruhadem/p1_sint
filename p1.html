@@ -65,8 +65,16 @@
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input type="password" name="Password" onchange ="checkPassword()"><label class = "asterisco">*</label></td>
-                            <td class="blink">Debe contener entre 4 (incluido) y 16 (incluido) caracteres de tipo alfanumérico</td>
+                            <td><input id = "campocontraseña" type="password" name="Password" onfocus="deploy(this)" onblur="undeploy(this)" onkeyup="checkPassword()"><label class = "asterisco">*</label></td>                            
+                        </tr>
+                        <tr>
+                            <div id="message">
+                                <h3>La password debe contener los siguientes elementos:</h3>
+                                <p id="minuscula" class="invalid">Una <b>letra</b> minúscula</p>
+                                <p id="mayuscula" class="invalid">Una <b>letra</b> mayúscula</p>
+                                <p id="numero" class="invalid">Un <b>número</b></p>
+                                <p id="longitud" class="invalid">Un mínimo de <b>8 characters</b></p>
+                            </div>
                         </tr>                         
                     </table>
             </fieldset>
@@ -109,6 +117,7 @@
                 <legend>Comentarios</legend>
                 <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
             </fieldset>
+            <input type="file" name="imagen">
             <input type = "submit" value="Enviar" class="button">
             <input type = "reset" value="Limpiar" class="button">
             <input type = "hidden" name="navegador">

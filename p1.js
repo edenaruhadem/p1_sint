@@ -95,7 +95,6 @@ function checkIsCorrect()
 
 }
 
-
 /*
 Este grupo de funciones checkea la existencia de datos requeridos en los campos. Son funciones parciales
 */
@@ -159,19 +158,59 @@ function checkApellido()
         return false;
     }    
 }
-function checkPassword()
-{   var uncorrect = "Contraseña no válida";
-    var correct = "Contraseña válida";
-    var x = document.forms["Formulario"]["Password"].value;
-    if (x.search(/^.{4,8}$/)==-1)
-    {
-        alert(uncorrect);        
-    }
-    else
-    {
-        alert(correct);
-    }    
+function deploy(x)
+{
+    document.getElementById("message").style.display = "block";
 }
+function undeploy(x)
+{
+    document.getElementById("message").style.display = "none";
+}
+function checkPassword()
+{   
+
+  var campo = document.getElementById("campocontraseña");
+  var letter = document.getElementById("minuscula");
+  var capital = document.getElementById("mayuscula");
+  var number = document.getElementById("numero");
+  var length = document.getElementById("longitud");  
+  var letrasMinusculas = /[a-z]/g;
+  var letrasMayusculas = /[A-Z]/g;
+  var numeros = /[0-9]/g;
+
+  if(campo.value.match(letrasMinusculas)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+    
+  if(campo.value.match(letrasMayusculas)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+    
+  if(campo.value.match(numeros)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }  
+  
+  if(campo.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }  
+}
+
 function setTrueCheckboxes()
 {    
     document.getElementById("check1").checked = true;
