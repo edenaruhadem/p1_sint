@@ -44,6 +44,7 @@
         echo $_REQUEST['sugerencias'] . "<br/>";
         echo "Hora: " . $_REQUEST['hora'] . "<br/>";
         echo "Navegador : " . $_REQUEST['navegador'] . "<br/>";
+        echo "Imagen subida: " . $_FILES['music_upload']['name'];
     ?>
     </fieldset>
 </body>
