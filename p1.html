@@ -9,7 +9,7 @@
     <body>
         <h1>Registro en una página de información musical</h1>
         <center><img src="music.jpg" alt = "pink floyd" class="imagenportada"></center> <!-- this is a comment -->        
-        <form action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkForm()">
+        <form id = "myForm" action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkForm()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%"                                    
@@ -104,14 +104,14 @@
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
                 Método de envío del formulario:<br>
-                <input type="radio" name="metodo" value="GET">Get
-                <input type="radio" name="metodo" value="POST" checked>Post<br>
+                <input id = "isGet" type="radio" name="metodo" value="GET">Get
+                <input id = "isPost" type="radio" name="metodo" value="POST" checked>Post<br>
                 Codificación de los datos enviados:<br>
-                <input type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
-                <input type="radio" name="codificacion" value="multipart/form-data">multipart/form-data<br>
+                <input id = "isUrlencoded" type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
+                <input id = "isMultipart" type="radio" name="codificacion" value="multipart/form-data">multipart/form-data<br>
                 URL de envío:<br>
-                <input type="radio" name="url" value="p1.php" checked>p1.php
-                <input type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
+                <input id = "isP1" type="radio" name="url" value="p1.php" checked>p1.php
+                <input id = "isP1info" type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
             </fieldset>
             <fieldset class="field">
                 <legend>Comentarios</legend>
