@@ -35,7 +35,11 @@ fieldset>legend
     font-style: italic;
     font-weight: bold;    
 }
-
+fieldset>p
+{
+    font-style: oblique;
+    font-size: 10pt;
+}
 .field
 {
     background-color: burlywood;
@@ -48,4 +52,20 @@ img
     width: 100%;
     height: 160px;
 
+}
+.blink
+{
+  -webkit-animation: blink 1s linear infinite;
+  -moz-animation: blink 1s linear infinite;
+  animation: blink 1s linear infinite;
+}
+@keyframes blink 
+{  
+    0% { color: red; }
+    100% { color: black; }
+}
+@-webkit-keyframes blink 
+{
+    0% { color: red; }
+    100% { color: black; }
 }
