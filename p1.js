@@ -34,7 +34,7 @@ function checkForm()
     }
     else
     {
-        document.getElementById("myForm").action = "http://193.146.210.123/phpinfo.php";
+        document.getElementById("myForm").action = "phpinfo.php";
     }
 
     if (checkCorrect == false)
