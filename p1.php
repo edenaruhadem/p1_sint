@@ -44,9 +44,19 @@
         echo $_REQUEST['sugerencias'] . "<br/>";
         echo "Hora: " . $_REQUEST['hora'] . "<br/>";
         echo "Navegador : " . $_REQUEST['navegador'] . "<br/>";
-        echo "Imagen subida: " . $_FILES['music_upload']['name'];
-    ?>
-    </fieldset>
+        $dir_subida = "uploads/";
+        $fichero_subido = $dir_subida . basename($_FILES["imagen"]["name"]);
+        if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $fichero_subido))
+        {
+            echo "Fichero subido con éxito" . "<br/>";
+            echo "<center><img src = $fichero_subido></img></center>";            
+        } 
+        else 
+        {
+            echo "El fichero no se ha subido correctamente" . "<br/>";
+        }                
+    ?>    
+    </fieldset>    
 </body>
 </html>
 

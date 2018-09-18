@@ -23,7 +23,8 @@ h1
     width: 200px;
     height: 100px;
 }
-#message {
+#message 
+{
     display:none;
     background: beige;
     color: #000;
@@ -31,9 +32,15 @@ h1
     padding: 20px;
     margin-top: 10px;
 }
-#message p {
+#message p 
+{
     padding: 10px 35px;
     font-size: 10pt;
+}
+img
+{    
+    width: auto;
+    height: auto;
 }
 .valid {
     color: green;
@@ -75,7 +82,7 @@ fieldset>p
     background-color: burlywood;
 }
 
-img
+.imagenportada
 {
     border-radius: 8px;
     opacity: 0.5;

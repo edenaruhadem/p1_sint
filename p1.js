@@ -219,7 +219,8 @@ function setTrueCheckboxes()
     document.getElementById("check4").checked = true; 
     document.getElementById("check5").checked = true; 
     document.getElementById("check6").checked = true; 
-    document.getElementById("check7").checked = true; 
+    document.getElementById("check7").checked = true;
+    document.getElementById("check8").checked = false; 
     document.getElementById("check9").checked = false;        
 }
 function setFalseCheckboxes()

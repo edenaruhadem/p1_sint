@@ -8,8 +8,8 @@
     </head>
     <body>
         <h1>Registro en una página de información musical</h1>
-        <center><img src="music.jpg" alt = "pink floyd"></center> <!-- this is a comment -->        
-        <form action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype="application/x-www-form-urlencoded" onsubmit="return checkForm()">
+        <center><img src="music.jpg" alt = "pink floyd" class="imagenportada"></center> <!-- this is a comment -->        
+        <form action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkForm()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%"                                    
@@ -117,7 +117,7 @@
                 <legend>Comentarios</legend>
                 <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
             </fieldset>
-            <input type="file" name="imagen">
+            <input type = "file" name = "imagen" id="imagen">
             <input type = "submit" value="Enviar" class="button">
             <input type = "reset" value="Limpiar" class="button">
             <input type = "hidden" name="navegador">
