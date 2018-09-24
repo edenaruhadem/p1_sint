@@ -1,69 +1,22 @@
 /*
-Función principal que se llama desde el formulario para hacer las verificaciones
-*/
-function checkForm()
-{
-    var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";    
-    var checkCorrect = checkIsCorrect();
-    var calendario= new Date();
-    var hora = new String (calendario.getHours());
-    var minutos = new String (calendario.getMinutes());
-    var segundos = new String (calendario.getSeconds());
-
-    if (document.getElementById("isPost").checked == true)
-    {
-        document.getElementById("myForm").method = "POST";        
-    }
-    else
-    {
-        document.getElementById("myForm").method = "GET";
-    }
-
-    if (document.getElementById("isUrlencoded").checked == true)
-    {
-        document.getElementById("myForm").enctype = "application/x-www-form-urlencoded";        
-    }
-    else
-    {
-        document.getElementById("myForm").enctype = "multipart/form-data";
-    }
-
-    if (document.getElementById("isP1").checked == true)
-    {
-        document.getElementById("myForm").action = "p1.php";        
-    }
-    else
-    {
-        document.getElementById("myForm").action = "phpinfo.php";
-    }
-
-    if (checkCorrect == false)
-    {        
-        return false;
-    }
-    else if (checkCorrect == true)
-    {        
-    	document.forms["Formulario"]["hora"].value = hora + ":" + minutos + ":" + segundos;
-        document.forms["Formulario"]["navegador"].value = comprobarNavegador();   
-        alert(mensaje);
-        return true;
-    }
-}
-/*
 Función general que verifica la correcta introducción de los datos pertenecientes a cada campo
 */
 function checkIsCorrect()
 {
+    var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
+    var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";
     var correctNombre = checkNombre();
     var correctApellido = checkApellido();
     var correctNacimiento = checkNacimiento();
     var correctCodigoPostal = checkCodigoPostal();
     var correctTelefono = checkTelefono();
-    var correctEmail = checkEmail();      
-    if ((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false))
+    var correctEmail = checkEmail();            
+    var calendario= new Date();
+    var hora = new String (calendario.getHours());
+    var minutos = new String (calendario.getMinutes());
+    var segundos = new String (calendario.getSeconds());      
+    if ((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
     {
-        var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
-
         if (correctNombre == false)
         {
             mensajeIsCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
@@ -87,13 +40,43 @@ function checkIsCorrect()
         if (correctEmail == false)
         {
             mensajeIsCorrect += "El e-mail introducido es erróneo \n";
-        }            
+        }
+        alert(mensajeIsCorrect);            
         return false;
     }
-    else
+    /*else
     {
+        if (document.getElementById("isPost").checked == true)
+        {
+            document.getElementById("myForm").method = "POST";        
+        }
+        else
+        {            
+            document.getElementById("myForm").method = "GET";
+        }
+
+        if (document.getElementById("isUrlencoded").checked == true)
+        {
+            document.getElementById("myForm").enctype = "application/x-www-form-urlencoded";        
+        }
+        else
+        {
+            document.getElementById("myForm").enctype = "multipart/form-data";
+        }
+
+        if (document.getElementById("isP1").checked == true)
+        {
+            document.getElementById("myForm").action = "p1.php";        
+        }
+        else
+        {
+            document.getElementById("myForm").action = "phpinfo.php";
+        }     
+    	document.forms["Formulario"]["hora"].value = hora + ":" + minutos + ":" + segundos;
+        document.forms["Formulario"]["navegador"].value = comprobarNavegador();   
+        alert(mensaje);
         return true;
-    }
+    }*/
 }
 /*
 Este grupo de funciones contiene patrones específicos de verificación de datos. Son funciones parciales.
