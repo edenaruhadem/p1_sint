@@ -9,19 +9,19 @@
     <body>
         <h1>Registro en una página de información musical</h1>
         <center><img src="music.jpg" alt = "pink floyd" class="imagenportada"></center> <!-- this is a comment -->        
-        <form id = "myForm" action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkForm()">
+        <form id = "myForm" action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkIsCorrect()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type="text" name="Nombre"><label class = "asterisco">*</label></td>
-                            <td class="blink">No debe contener números</td>
+                            <td><input id = "inputNombre" type="text" name="Nombre" onkeyup = "checkNombre()"><label class = "asterisco">*</label></td>
+                            <td><p id = "mensajeNombre"class="invalid">Introduzca sólo letras.</p></td>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
                             <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>
-                            <td class="blink">No debe contener números</td>
+                            <td><p id = "mensajeApellidos"class="invalid">Introduzca sólo letras.</p></td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -30,7 +30,7 @@
                         <tr>
                             <td>Fecha de Nacimiento:</td>
                             <td><input type="text" name="FechaNacimiento"></td>
-                            <td class="blink">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</td>
+                            <td><p id="mensajeFN" class="invalid">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</p><td>
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -51,17 +51,17 @@
                         <tr>
                             <td>Código Postal:</td>
                             <td><input type="text" name="CodigoPostal"></td>
-                            <td class="blink">Introduzca 5 dígitos.</td>
+                            <td><p id = "mensajeCodigoPostal"class="invalid">Introduzca 5 dígitos.</p></td>
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
                             <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>
-                            <td class="blink">Introduzca 9 dígitos</td>
+                            <td><p id = "mensajeTelefono" class="invalid">Introduzca 9 dígitos.</p></td>
                         </tr>
                         <tr>
                             <td>e-mail:</td>
                             <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>
-                            <td class="blink">Introduzca un e-mail válido: username@dominio.</td>
+                            <td><p id = "mensajeEmail" class="invalid">Introduzca un e-mail válido: username@dominio.</p></td>
                         </tr>
                         <tr>
                             <td>Password:</td>
@@ -103,12 +103,16 @@
                 ¿Consiente el tratamiento de sus datos?<br>
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
-                Método de envío del formulario:<br>
+                Método de envío del formulario:
+                <p class = "blink">Seleccionar método "POST" si se va a subir un archivo posteriormente.</p>                
                 <input id = "isGet" type="radio" name="metodo" value="GET">Get
-                <input id = "isPost" type="radio" name="metodo" value="POST" checked>Post<br>
-                Codificación de los datos enviados:<br>
+                <input id = "isPost" type="radio" name="metodo" value="POST" checked>Post
+                <br></br>               
+                Codificación de los datos enviados:
+                <p class = "blink">Seleccionar "urlencoded" si el método de envío elegido es GET.</p>
                 <input id = "isUrlencoded" type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
-                <input id = "isMultipart" type="radio" name="codificacion" value="multipart/form-data">multipart/form-data<br>
+                <input id = "isMultipart" type="radio" name="codificacion" value="multipart/form-data">multipart/form-data
+                <br></br>                
                 URL de envío:<br>
                 <input id = "isP1" type="radio" name="url" value="p1.php" checked>p1.php
                 <input id = "isP1info" type="radio" name="url" value="phpinfo.php">phpinfo.php<br>                
@@ -118,6 +122,7 @@
                 <textarea name="sugerencias" id="sugs">Inserte aquí su sugerencia</textarea>                   
             </fieldset>
             <input type = "file" name = "imagen" id="imagen">
+            <br></br>
             <input type = "submit" value="Enviar" class="button">
             <input type = "reset" value="Limpiar" class="button">
             <input type = "hidden" name="navegador">
