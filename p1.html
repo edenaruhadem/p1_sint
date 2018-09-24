@@ -15,13 +15,13 @@
                     <table class = "tabla" style="width: 100%"                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type="text" name="Nombre"><label class = "asterisco">*</label></td>
-                            <td class="blink">No debe contener números</td>
+                            <td><input id = "inputNombre" type="text" name="Nombre" onkeyup = "checkNombre()"><label class = "asterisco">*</label></td>
+                            <td><p id = "mensajeNombre"class="invalid">Introduzca sólo letras.</p></td>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
                             <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>
-                            <td class="blink">No debe contener números</td>
+                            <td><p id = "mensajeApellidos"class="invalid">Introduzca sólo letras.</p></td>
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -30,7 +30,7 @@
                         <tr>
                             <td>Fecha de Nacimiento:</td>
                             <td><input type="text" name="FechaNacimiento"></td>
-                            <td class="blink">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</td>
+                            <td><p id="mensajeFN" class="invalid">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</p><td>
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -51,17 +51,17 @@
                         <tr>
                             <td>Código Postal:</td>
                             <td><input type="text" name="CodigoPostal"></td>
-                            <td class="blink">Introduzca 5 dígitos.</td>
+                            <td><p id = "mensajeCodigoPostal"class="invalid">Introduzca 5 dígitos.</p></td>
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
                             <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>
-                            <td class="blink">Introduzca 9 dígitos</td>
+                            <td><p id = "mensajeTelefono" class="invalid">Introduzca 9 dígitos.</p></td>
                         </tr>
                         <tr>
                             <td>e-mail:</td>
                             <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>
-                            <td class="blink">Introduzca un e-mail válido: username@dominio.</td>
+                            <td><p id = "mensajeEmail" class="invalid">Introduzca un e-mail válido: username@dominio.</p></td>
                         </tr>
                         <tr>
                             <td>Password:</td>

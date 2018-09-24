@@ -83,13 +83,20 @@ Este grupo de funciones contiene patrones específicos de verificación de datos
 */
 function checkNombre()
 {
-    var x = document.forms["Formulario"]["Nombre"].value;
-    if (x.search(/^[a-zA-Z\s]*$/)==-1)
+    var nombre = document.getElementById("inputNombre");
+    var mensaje = document.getElementById("mensajeNombre");
+    var expNombre = /[a-zA-Z\s]/g;    
+    if (nombre.value.match(expNombre))
     {
-        return false;
-    }    
+        mensaje.classList.remove("invalid");
+        mensaje.classList.add("valid");        
+    }
+    else
+    {
+        mensaje.classList.remove("valid");
+        mensaje.classList.add("invalid");        
+    }        
 }
-
 function checkApellido()
 {
     var x = document.forms["Formulario"]["Apellidos"].value;
