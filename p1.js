@@ -6,22 +6,22 @@ function checkIsCorrect()
     var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
     var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";
     var correctNombre = checkNombre();
-    var correctApellido = checkApellido();
+    /*var correctApellido = checkApellido();
     var correctNacimiento = checkNacimiento();
     var correctCodigoPostal = checkCodigoPostal();
     var correctTelefono = checkTelefono();
-    var correctEmail = checkEmail();            
+    var correctEmail = checkEmail();*/            
     var calendario= new Date();
     var hora = new String (calendario.getHours());
     var minutos = new String (calendario.getMinutes());
     var segundos = new String (calendario.getSeconds());      
-    if ((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
+    if ((correctNombre == false) /*|| (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false)*/)
     {
         if (correctNombre == false)
         {
             mensajeIsCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
         }
-        if (correctApellido == false)
+        /*if (correctApellido == false)
         {
             mensajeIsCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
         }
@@ -40,11 +40,11 @@ function checkIsCorrect()
         if (correctEmail == false)
         {
             mensajeIsCorrect += "El e-mail introducido es erróneo \n";
-        }
+        }*/
         alert(mensajeIsCorrect);            
         return false;
     }
-    /*else
+    else
     {
         if (document.getElementById("isPost").checked == true)
         {
@@ -76,7 +76,7 @@ function checkIsCorrect()
         document.forms["Formulario"]["navegador"].value = comprobarNavegador();   
         alert(mensaje);
         return true;
-    }*/
+    }
 }
 /*
 Este grupo de funciones contiene patrones específicos de verificación de datos. Son funciones parciales.
@@ -85,8 +85,8 @@ function checkNombre()
 {
     var nombre = document.getElementById("inputNombre");
     var mensaje = document.getElementById("mensajeNombre");
-    var expNombre = /[a-zA-Z\s]/g;    
-    if (nombre.value.match(expNombre))
+    var expNombre = /[a-zA-Z\s]/;    
+    if (nombre.value.search(expNombre) =! -1)
     {
         mensaje.classList.remove("invalid");
         mensaje.classList.add("valid");        
@@ -97,7 +97,7 @@ function checkNombre()
         mensaje.classList.add("invalid");        
     }        
 }
-function checkApellido()
+/*function checkApellido()
 {
     var x = document.forms["Formulario"]["Apellidos"].value;
     if (x.search(/^[a-zA-Z\s]*$/)==-1)
@@ -165,7 +165,7 @@ function checkEmail()
     {
         return true;
     }
-}
+}*/
 function deploy(x)
 {
     document.getElementById("message").style.display = "block";
@@ -174,6 +174,11 @@ function undeploy(x)
 {
     document.getElementById("message").style.display = "none";
 }
+function deployNombre(x)
+{
+    document.getElementById("divNombre").style.display = "block";
+}
+
 function checkPassword()
 {
   var campo = document.getElementById("campocontraseña");

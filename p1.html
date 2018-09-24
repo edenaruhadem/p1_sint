@@ -12,16 +12,19 @@
         <form id = "myForm" action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkIsCorrect()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
-                    <table class = "tabla" style="width: 100%"                                    
+                    <table class = "tabla" style="width: 100%">                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input id = "inputNombre" type="text" name="Nombre" onkeyup = "checkNombre()"><label class = "asterisco">*</label></td>
-                            <td><p id = "mensajeNombre"class="invalid">Introduzca sólo letras.</p></td>
+                            <td><input id = "inputNombre" type="text" name="Nombre" onfocus="deployNombre()"><label class = "asterisco">*</label></td>                            
+                        </tr>
+                        <tr>
+                            <div id="divNombre">
+                                <p id = "mensajeNombre" class="invalid">Introduzcasololetras.</p>
+                            </div>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
-                            <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>
-                            <td><p id = "mensajeApellidos"class="invalid">Introduzca sólo letras.</p></td>
+                            <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>                            
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -29,8 +32,7 @@
                         </tr>
                         <tr>
                             <td>Fecha de Nacimiento:</td>
-                            <td><input type="text" name="FechaNacimiento"></td>
-                            <td><p id="mensajeFN" class="invalid">Introduzca la fecha de la siguiente manera: DD/MM/AAAA</p><td>
+                            <td><input type="text" name="FechaNacimiento"></td>                            
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -50,18 +52,15 @@
                         </tr>
                         <tr>
                             <td>Código Postal:</td>
-                            <td><input type="text" name="CodigoPostal"></td>
-                            <td><p id = "mensajeCodigoPostal"class="invalid">Introduzca 5 dígitos.</p></td>
+                            <td><input type="text" name="CodigoPostal"></td>                            
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
-                            <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>
-                            <td><p id = "mensajeTelefono" class="invalid">Introduzca 9 dígitos.</p></td>
+                            <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>                            
                         </tr>
                         <tr>
                             <td>e-mail:</td>
-                            <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>
-                            <td><p id = "mensajeEmail" class="invalid">Introduzca un e-mail válido: username@dominio.</p></td>
+                            <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>                            
                         </tr>
                         <tr>
                             <td>Password:</td>
@@ -73,7 +72,7 @@
                                 <p id="minuscula" class="invalid">Una <b>letra</b> minúscula</p>
                                 <p id="mayuscula" class="invalid">Una <b>letra</b> mayúscula</p>
                                 <p id="numero" class="invalid">Un <b>número</b></p>
-                                <p id="longitud" class="invalid">Un mínimo de <b>8 characters</b></p>
+                                <p id="longitud" class="invalid">Un mínimo de <b>8 caractertes</b></p>
                             </div>
                         </tr>                         
                     </table>
