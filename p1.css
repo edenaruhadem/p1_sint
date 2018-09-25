@@ -2,6 +2,7 @@ body
 {
     background-color: beige;
 }
+
 h1
 {
     font-style: oblique;
@@ -23,6 +24,7 @@ h1
     width: 200px;
     height: 100px;
 }
+
 #message 
 {
     display:none;
@@ -32,24 +34,29 @@ h1
     padding: 20px;
     margin-top: 10px;
 }
+
 #message p 
 {
     padding: 10px 35px;
     font-size: 10pt;
 }
+
 img
 {    
     width: auto;
     height: auto;
 }
+
 .valid {
     color: green;
 }
+
 .valid:before {
     position: relative;
     left: -35px;
     content: "✔";
 }
+
 .invalid {
     color: red;
 }
@@ -59,24 +66,29 @@ img
     left: -35px;
     content: "✖";
 }
+
 .button
 {
     color: black;
 }
+
 .tabla
 {
     border-collapse: collapse;    
 }
+
 fieldset>legend
 {
     font-style: italic;
     font-weight: bold;    
 }
+
 fieldset>p
 {
     font-style: oblique;
     font-size: 10pt;
 }
+
 .field
 {
     background-color: burlywood;
@@ -88,24 +100,27 @@ fieldset>p
     opacity: 0.5;
     width: 100%;
     height: 160px;
-
 }
+
 .blink
 {
   -webkit-animation: blink 1s linear infinite;
   -moz-animation: blink 1s linear infinite;
   animation: blink 1s linear infinite;
 }
+
 @keyframes blink 
 {  
     0% { color: red; }
     100% { color: black; }
 }
+
 @-webkit-keyframes blink 
 {
     0% { color: red; }
     100% { color: black; }
 }
+
 .asterisco 
 { 
     color: #d00;

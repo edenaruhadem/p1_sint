@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Registro en una página de información musical</h1>
-        <center><img src="music_upload.jpg" alt = "music" class="imagenportada"></center> <!-- this is a comment -->        
+        <center><img src="music_upload.jpg" alt = "music" class="imagenportada"></center>        
         <form id = "myForm" action="p1.php" name="Formulario" autocomplete="on" onsubmit="return checkIsCorrect()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td>Fecha de Nacimiento:</td>
-                            <td><input id="campoFechaNacimiento" type="text" name="FechaNacimiento"><label class="blink"> DD/MM/AAAA</label></td>                            
+                            <td><input id="campoFechaNacimiento" type="text" name="FechaNacimiento"><label class="blink"> DD/MM/AAAA. Año no debe ser menor que 1900 ni mayor que 2018.</label></td>                            
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
-                            <td><input id = "campoTelefono" type="text" name="Telefono"><label class = "asterisco">*</label><label class="blink"> Introduzca 9 dígitos empezando por un 6, un 8 o un 9.</label></td>                            
+                            <td><input id = "campoTelefono" type="text" name="Telefono"><label class = "asterisco">*</label><label class="blink"> Introduzca 9 dígitos empezando por un 6, un 7, un 8 o un 9.</label></td>                            
                         </tr>
                         <tr>
                             <td>e-mail:</td>
@@ -98,12 +98,12 @@
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
                 Método de envío del formulario:
-                <p class = "blink">Seleccionar método "POST" si se va a subir un archivo posteriormente con codificación multipart.</p>                
+                <p class = "blink">Seleccionar método "POST" si se va a subir un archivo. En ese caso, posteriormente, elegir codificación multipart.</p>                
                 <input id = "isGet" type="radio" name="metodo" value="GET">Get
                 <input id = "isPost" type="radio" name="metodo" value="POST" checked>Post
                 <br></br>               
                 Codificación de los datos enviados:
-                <p class = "blink">Seleccionar "urlencoded" si el método de envío elegido es GET.</p>
+                <p class = "blink">Seleccionar "urlencoded" si el método de envío elegido fue GET.</p>
                 <input id = "isUrlencoded" type="radio" name="codificacion" value="application/x-www-form-urlencoded" checked>application/x-www-form-urlencoded
                 <input id = "isMultipart" type="radio" name="codificacion" value="multipart/form-data">multipart/form-data
                 <br></br>                
