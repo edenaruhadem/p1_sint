@@ -3,48 +3,49 @@ Función general que verifica la correcta introducción de los datos pertenecien
 */
 function checkIsCorrect()
 {
-    var mensajeIsCorrect = "Los siguientes campos son incorrectos \n";
-    var mensaje = "Los campos han sido rellenados correctamente. Se procede con el envío de datos";
+    var calendario= new Date();
+    var hora = new String (calendario.getHours());
+    var minutos = new String (calendario.getMinutes());
+    var segundos = new String (calendario.getSeconds());      
+    document.getElementById("Hora").value = hora + ":" + minutos + ":" + segundos;
+    document.getElementById("Nav").value = comprobarNavegador();
     var correctNombre = checkNombre();
     var correctApellido = checkApellido();
     var correctNacimiento = checkNacimiento();
     var correctCodigoPostal = checkCodigoPostal();
     var correctTelefono = checkTelefono();
-    var correctEmail = checkEmail();            
-    var calendario= new Date();
-    var hora = new String (calendario.getHours());
-    var minutos = new String (calendario.getMinutes());
-    var segundos = new String (calendario.getSeconds());      
-    if ((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
+    var correctEmail = checkEmail();
+    if((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
     {
+        var mensajeIsNotCorrect = "Los siguientes campos son incorrectos \n";
         if (correctNombre == false)
         {
-            mensajeIsCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
+            mensajeIsNotCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
         }
         if (correctApellido == false)
         {
-            mensajeIsCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
+            mensajeIsNotCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
         }
         if (correctNacimiento == false)
         {
-            mensajeIsCorrect += "El campo fecha de nacimiento introducido es erróneo \n";
+            mensajeIsNotCorrect += "El campo fecha de nacimiento introducido es erróneo \n";
         }
         if (correctCodigoPostal == false)
         {
-            mensajeIsCorrect += "El código postal introducido es erróneo \n";
+            mensajeIsNotCorrect += "El código postal introducido es erróneo \n";
         }
         if (correctTelefono == false)
         {
-            mensajeIsCorrect += "El teléfono introducido es erróneo \n";
+            mensajeIsNotCorrect += "El teléfono introducido es erróneo \n";
         }
         if (correctEmail == false)
         {
-            mensajeIsCorrect += "El e-mail introducido es erróneo \n";
+            mensajeIsNotCorrect += "El e-mail introducido es erróneo \n";
         }
-        alert(mensajeIsCorrect);            
+        alert(mensajeIsNotCorrect);
         return false;
     }
-    /*else
+    else
     {
         if (document.getElementById("isPost").checked == true)
         {
@@ -71,88 +72,160 @@ function checkIsCorrect()
         else
         {
             document.getElementById("myForm").action = "phpinfo.php";
-        }     
-    	document.forms["Formulario"]["hora"].value = hora + ":" + minutos + ":" + segundos;
-        document.forms["Formulario"]["navegador"].value = comprobarNavegador();   
-        alert(mensaje);
+        }
+        alert("Los campos han sido rellenados correctamente. Se procede con el envío de datos");
         return true;
+    }
+
+    /*var errores = errores();    
+    if(errores == true)
+    {
+        alert("Hay errores");
+        return false;
+    }
+    else if (errores == false)
+    {  
+        alert("Los campos han sido rellenados correctamente. Se procede con el envío de datos");
+        if (document.getElementById("isPost").checked == true)
+        {
+            document.getElementById("myForm").method = "POST";        
+        }
+        else
+        {            
+            document.getElementById("myForm").method = "GET";
+        }
+
+        if (document.getElementById("isUrlencoded").checked == true)
+        {
+            document.getElementById("myForm").enctype = "application/x-www-form-urlencoded";        
+        }
+        else
+        {
+            document.getElementById("myForm").enctype = "multipart/form-data";
+        }
+
+        if (document.getElementById("isP1").checked == true)
+        {
+            document.getElementById("myForm").action = "p1.php";        
+        }
+        else
+        {
+            document.getElementById("myForm").action = "phpinfo.php";
+        }
+
+    var calendario= new Date();
+    var hora = new String (calendario.getHours());
+    var minutos = new String (calendario.getMinutes());
+    var segundos = new String (calendario.getSeconds());      
+    document.getElementById("Hora").value = hora + ":" + minutos + ":" + segundos;
+    document.getElementById("Nav").value = comprobarNavegador();   
+    return true;   
     }*/
+}
+function errores()
+{    
+    var correctNombre = checkNombre();
+    var correctApellido = checkApellido();
+    var correctNacimiento = checkNacimiento();
+    var correctCodigoPostal = checkCodigoPostal();
+    var correctTelefono = checkTelefono();
+    var correctEmail = checkEmail();
+    if((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
+    {               
+        var mensajeIsNotCorrect = "Los siguientes campos son incorrectos \n";
+        if (correctNombre == false)
+        {
+            mensajeIsNotCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
+        }
+        if (correctApellido == false)
+        {
+            mensajeIsNotCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
+        }
+        if (correctNacimiento == false)
+        {
+            mensajeIsNotCorrect += "El campo fecha de nacimiento introducido es erróneo \n";
+        }
+        if (correctCodigoPostal == false)
+        {
+            mensajeIsNotCorrect += "El código postal introducido es erróneo \n";
+        }
+        if (correctTelefono == false)
+        {
+            mensajeIsNotCorrect += "El teléfono introducido es erróneo \n";
+        }
+        if (correctEmail == false)
+        {
+            mensajeIsNotCorrect += "El e-mail introducido es erróneo \n";
+        }                    
+        alert(mensajeIsNotCorrect);        
+        return true;               
+    }
+    else return false;
 }
 /*
 Este grupo de funciones contiene patrones específicos de verificación de datos. Son funciones parciales.
 */
 function checkNombre()
 {
-    var nombre = document.getElementById("inputNombre");
-    var mensaje = document.getElementById("mensajeNombre");
-    var expNombre = /[a-zA-Z\s]/g;    
-    if (nombre.value.match(expNombre))
-    {
-        mensaje.classList.remove("invalid");
-        mensaje.classList.add("valid");        
+    var nombre = document.getElementById("campoNombre").value;
+    var expNombre = /^[a-zA-Z\s]*$/;
+    if (nombre.search(expNombre)==-1)
+    { 
+        return false;		
     }
-    else
-    {
-        mensaje.classList.remove("valid");
-        mensaje.classList.add("invalid");        
-    }        
+    else return true;
 }
 function checkApellido()
 {
-    var x = document.forms["Formulario"]["Apellidos"].value;
-    if (x.search(/^[a-zA-Z\s]*$/)==-1)
-    {
-        return false;
-    }    
+    var apellidos = document.getElementById("campoApellidos").value;
+    var expApellidos = /^[a-zA-Z\s]*$/;
+    if (apellidos.search(expApellidos)==-1)
+    { 
+        return false;		
+    }
+    else return true;
 }
 function checkNacimiento()
 {
-    var x = document.forms["Formulario"]["FechaNacimiento"].value;
-    if(x!='')
-    {	
-		var dia = parseInt(x.substring(0,2));		
-		var mes = parseInt(x.substring(3,5));		
-		var ano = x.substring(6, 10);		
-		var longAno = ano.length;
-        if((dia>31) || (mes>12) || (longAno!=4))
-        {
-			return false;
-		}
-	}
-    else 
+    var nacimiento = document.getElementById("campoFechaNacimiento").value;    
+    var dia = parseInt(nacimiento.substring(0,2));    		
+    var mes = parseInt(nacimiento.substring(3,5));    		
+	var anio = parseInt(nacimiento.substring(6, 10));        
+    if((dia>31) || (mes>12) || (anio<1900) || (anio>2018))
     {
-        return true;
-    }
+		return false;
+	}	
+    else return true;    
 }
 function checkCodigoPostal()
 {
-    var x = document.forms["Formulario"]["CodigoPostal"].value;
-    var longCP = x.length;
-    if ((longCP!=5) && (x.search(/[0-9]/)==-1))
+    var cp = document.getElementById("campoCodigoPostal").value;
+    var expCP = /[0-9][0-9][0-9][0-9][0-9]/;
+    if(cp != '') 
     {
-        return false;
+        if (cp.search(expCP)==-1)
+        {
+            return false;
+        }
     }
-    else
-    {
-        return true;
-    }
+    else return true;    
 }
 function checkTelefono()
 {
-    var x = document.forms["Formulario"]["Telefono"].value;
-    var longTelefono = x.length;
-    if ((longTelefono!=9) && (x.search(/[0-9]/)==-1))
+    var telef = document.getElementById("campoTelefono").value;
+    var expTelef = /^[6-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/    
+    if(telef != '') 
     {
-        return false;
+        if (telef.search(expTelef)==-1)
+        {
+            return false;
+        }
     }
-    else
-    {
-        return true;
-    }
+    else return true;    
 }
 function checkEmail()
 {
-	var email = document.forms["Formulario"]["e-mail"];	
+	var email = document.getElementById("campoEmail").value;	
 	var cadenaEmail =/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     if(email != '') 
     {		
@@ -161,10 +234,7 @@ function checkEmail()
 			return false;
 		}		
 	}	
-    else 
-    {
-        return true;
-    }
+    else return true;    
 }
 function deploy(x)
 {
@@ -303,5 +373,4 @@ function comprobarNavegador() {
             ver_chrome = parseFloat(ver_ie);
             return ('Internet Explorer, Version: ' + ver_ie);
         }
-
 }
