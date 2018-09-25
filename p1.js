@@ -76,91 +76,6 @@ function checkIsCorrect()
         alert("Los campos han sido rellenados correctamente. Se procede con el envío de datos");
         return true;
     }
-
-    /*var errores = errores();    
-    if(errores == true)
-    {
-        alert("Hay errores");
-        return false;
-    }
-    else if (errores == false)
-    {  
-        alert("Los campos han sido rellenados correctamente. Se procede con el envío de datos");
-        if (document.getElementById("isPost").checked == true)
-        {
-            document.getElementById("myForm").method = "POST";        
-        }
-        else
-        {            
-            document.getElementById("myForm").method = "GET";
-        }
-
-        if (document.getElementById("isUrlencoded").checked == true)
-        {
-            document.getElementById("myForm").enctype = "application/x-www-form-urlencoded";        
-        }
-        else
-        {
-            document.getElementById("myForm").enctype = "multipart/form-data";
-        }
-
-        if (document.getElementById("isP1").checked == true)
-        {
-            document.getElementById("myForm").action = "p1.php";        
-        }
-        else
-        {
-            document.getElementById("myForm").action = "phpinfo.php";
-        }
-
-    var calendario= new Date();
-    var hora = new String (calendario.getHours());
-    var minutos = new String (calendario.getMinutes());
-    var segundos = new String (calendario.getSeconds());      
-    document.getElementById("Hora").value = hora + ":" + minutos + ":" + segundos;
-    document.getElementById("Nav").value = comprobarNavegador();   
-    return true;   
-    }*/
-}
-function errores()
-{    
-    var correctNombre = checkNombre();
-    var correctApellido = checkApellido();
-    var correctNacimiento = checkNacimiento();
-    var correctCodigoPostal = checkCodigoPostal();
-    var correctTelefono = checkTelefono();
-    var correctEmail = checkEmail();
-    if((correctNombre == false) || (correctApellido == false) || (correctNacimiento == false) || (correctCodigoPostal == false) || (correctTelefono == false) || (correctEmail == false))
-    {               
-        var mensajeIsNotCorrect = "Los siguientes campos son incorrectos \n";
-        if (correctNombre == false)
-        {
-            mensajeIsNotCorrect += "El campo nombre contiene números. Introducir sólo letras \n";
-        }
-        if (correctApellido == false)
-        {
-            mensajeIsNotCorrect += "El campo apellido contiene números. Introducir sólo letras \n";
-        }
-        if (correctNacimiento == false)
-        {
-            mensajeIsNotCorrect += "El campo fecha de nacimiento introducido es erróneo \n";
-        }
-        if (correctCodigoPostal == false)
-        {
-            mensajeIsNotCorrect += "El código postal introducido es erróneo \n";
-        }
-        if (correctTelefono == false)
-        {
-            mensajeIsNotCorrect += "El teléfono introducido es erróneo \n";
-        }
-        if (correctEmail == false)
-        {
-            mensajeIsNotCorrect += "El e-mail introducido es erróneo \n";
-        }                    
-        alert(mensajeIsNotCorrect);        
-        return true;               
-    }
-    else return false;
 }
 /*
 Este grupo de funciones contiene patrones específicos de verificación de datos. Son funciones parciales.
@@ -246,46 +161,54 @@ function undeploy(x)
 }
 function checkPassword()
 {
-  var campo = document.getElementById("campocontraseña");
-  var letter = document.getElementById("minuscula");
-  var capital = document.getElementById("mayuscula");
-  var number = document.getElementById("numero");
-  var length = document.getElementById("longitud");  
-  var letrasMinusculas = /[a-z]/g;
-  var letrasMayusculas = /[A-Z]/g;
-  var numeros = /[0-9]/g;
+    var campo = document.getElementById("campocontraseña");
+    var letter = document.getElementById("minuscula");
+    var capital = document.getElementById("mayuscula");
+    var number = document.getElementById("numero");
+    var length = document.getElementById("longitud");  
+    var letrasMinusculas = /[a-z]/g;
+    var letrasMayusculas = /[A-Z]/g;
+    var numeros = /[0-9]/g;
 
-  if(campo.value.match(letrasMinusculas)) {  
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-  }
+    if(campo.value.match(letrasMinusculas)) 
+    {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else 
+    {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
     
-  if(campo.value.match(letrasMayusculas)) {  
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-  }
+    if(campo.value.match(letrasMayusculas)) 
+    {  
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+    } else 
+    {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+    }
     
-  if(campo.value.match(numeros)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }  
-  
-  if(campo.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }  
+    if(campo.value.match(numeros)) 
+    {  
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+    } else 
+    {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+    }  
+    
+    if(campo.value.length >= 8) 
+    {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+    } else 
+    {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+    }  
 }
 
 function setTrueCheckboxes()
