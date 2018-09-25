@@ -8,23 +8,18 @@
     </head>
     <body>
         <h1>Registro en una página de información musical</h1>
-        <center><img src="music.jpg" alt = "pink floyd" class="imagenportada"></center> <!-- this is a comment -->        
-        <form id = "myForm" action="p1.php" method="POST" name="Formulario" autocomplete="on" enctype= "multipart/form-data" onsubmit="return checkIsCorrect()">
+        <center><img src="music_upload.jpg" alt = "music" class="imagenportada"></center> <!-- this is a comment -->        
+        <form id = "myForm" action="p1.php" name="Formulario" autocomplete="on" onsubmit="return checkIsCorrect()">
             <fieldset id="field1">
                 <legend>Datos personales:</legend>                     
                     <table class = "tabla" style="width: 100%">                                    
                         <tr>
                             <td>Nombre:</td>
-                            <td><input id = "inputNombre" type="text" name="Nombre" onfocus="deployNombre()"><label class = "asterisco">*</label></td>                            
-                        </tr>
-                        <tr>
-                            <div id="divNombre">
-                                <p id = "mensajeNombre" class="invalid">Introduzcasololetras.</p>
-                            </div>
-                        </tr>
+                            <td><input id = "campoNombre" type="text" name="Nombre"><label class = "asterisco">*</label><label class="blink"> Introduzca sólo letras.</label></td>                            
+                        </tr>                        
                         <tr>
                             <td>Apellidos:</td>
-                            <td><input type="text" name="Apellidos"><label class = "asterisco">*</label></td>                            
+                            <td><input id = "campoApellidos" type="text" name="Apellidos"><label class = "asterisco">*</label><label class="blink"> Introduzca sólo letras.</label></td>                            
                         </tr>
                         <tr>
                             <td>Sexo:</td>
@@ -32,7 +27,7 @@
                         </tr>
                         <tr>
                             <td>Fecha de Nacimiento:</td>
-                            <td><input type="text" name="FechaNacimiento"></td>                            
+                            <td><input id="campoFechaNacimiento" type="text" name="FechaNacimiento"><label class="blink"> DD/MM/AAAA</label></td>                            
                         </tr>
                         <tr>
                             <td>Dirección:</td>
@@ -52,19 +47,19 @@
                         </tr>
                         <tr>
                             <td>Código Postal:</td>
-                            <td><input type="text" name="CodigoPostal"></td>                            
+                            <td><input id = "campoCodigoPostal" type="text" name="CodigoPostal"><label class = "asterisco">*</label><label class="blink"> Introduzca 5 cifras.</label></td>                            
                         </tr>
                         <tr>
                             <td>Teléfono:</td>
-                            <td><input type="text" name="Telefono"><label class = "asterisco">*</label></td>                            
+                            <td><input id = "campoTelefono" type="text" name="Telefono"><label class = "asterisco">*</label><label class="blink"> Introduzca 9 dígitos empezando por un 6, un 8 o un 9.</label></td>                            
                         </tr>
                         <tr>
                             <td>e-mail:</td>
-                            <td><input type="text" name="e-mail"><label class = "asterisco">*</label></td>                            
+                            <td><input id = "campoEmail" type="text" name="e-mail"><label class = "asterisco">*</label><label class="blink"> Introduzca el correo con el siguiente formato: username@dominio.</label></td>                            
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input id = "campocontraseña" type="password" name="Password" onfocus="deploy(this)" onblur="undeploy(this)" onkeyup="checkPassword()"><label class = "asterisco">*</label></td>                            
+                            <td><input id = "campocontraseña" type="password" name="Password" onfocus="deploy(this)" onblur="undeploy(this)" onkeyup="checkPassword()"><label class = "asterisco">*</label><label class="blink"> Haga click en el campo para ver el formato del password.</label></td>                            
                         </tr>
                         <tr>
                             <div id="message">
@@ -103,7 +98,7 @@
                 <input type="radio" name="datos" value="SI" checked>Sí
                 <input type="radio" name="datos" value="NO">No<br>
                 Método de envío del formulario:
-                <p class = "blink">Seleccionar método "POST" si se va a subir un archivo posteriormente.</p>                
+                <p class = "blink">Seleccionar método "POST" si se va a subir un archivo posteriormente con codificación multipart.</p>                
                 <input id = "isGet" type="radio" name="metodo" value="GET">Get
                 <input id = "isPost" type="radio" name="metodo" value="POST" checked>Post
                 <br></br>               
@@ -124,8 +119,8 @@
             <br></br>
             <input type = "submit" value="Enviar" class="button">
             <input type = "reset" value="Limpiar" class="button">
-            <input type = "hidden" name="navegador">
-            <input type = "hidden" name="hora">                     
+            <input id="Nav" type = "hidden" name="navegador">
+            <input id="Hora" type = "hidden" name="hora">                     
         </form>          
     </body>
 </html>
